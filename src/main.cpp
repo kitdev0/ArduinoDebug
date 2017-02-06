@@ -13,7 +13,7 @@ ArduinoDebug debug("MAIN");
 void setup()
 {
   debug.init();
-  debug.sayln("## Start programe...");
+  debug.sayln("Start programe...");
 }
 
 void loop()
