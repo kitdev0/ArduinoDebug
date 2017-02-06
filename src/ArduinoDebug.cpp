@@ -1,6 +1,6 @@
 #include "ArduinoDebug.h"
 
-ArduinoDebug::ArduinoDebug(String _head)
+ARDUINO_DEBUG::ARDUINO_DEBUG(String _head)
 {
 #if defined(_USE_SOFTWARE_SERAIL) || defined(_USE_CUSTOM_SOFTWARE_SERAIL)
 		serial_port = &_MY_SOFTWARE_SERIAL;
@@ -12,20 +12,20 @@ ArduinoDebug::ArduinoDebug(String _head)
     header = _head;
 }
 
-ArduinoDebug::~ArduinoDebug()
+ARDUINO_DEBUG::~ARDUINO_DEBUG()
 {
     // delete serial_port;
 }
 
 //  private:
-String ArduinoDebug::setFormat(String _data)
+String ARDUINO_DEBUG::setFormat(String _data)
 {
     String str;
     str = currentTime() + " " + header + " : " + _data;
     return str;
 }
 
-String ArduinoDebug::currentTime(void)
+String ARDUINO_DEBUG::currentTime(void)
 {
 	time_t t = now();
 	String str = to2Digits(hour(t));
@@ -36,7 +36,7 @@ String ArduinoDebug::currentTime(void)
 	return str;
 }
 
-String ArduinoDebug::currentDay(void)
+String ARDUINO_DEBUG::currentDay(void)
 {
 	time_t t = now();
 	String _str = F("");
@@ -50,7 +50,7 @@ String ArduinoDebug::currentDay(void)
 	return _str;
 }
 
-String ArduinoDebug::to2Digits(int _digits)
+String ARDUINO_DEBUG::to2Digits(int _digits)
 {
 	String str = F("");
 	if (_digits < 10)
@@ -59,7 +59,7 @@ String ArduinoDebug::to2Digits(int _digits)
 	return str;
 }
 
-String ArduinoDebug::to4Digits(int _digits)
+String ARDUINO_DEBUG::to4Digits(int _digits)
 {
 	String str = F("");
 	if (_digits < 10)
@@ -78,7 +78,7 @@ String ArduinoDebug::to4Digits(int _digits)
 	return str;
 }
 
-String ArduinoDebug::dirName(void)
+String ARDUINO_DEBUG::dirName(void)
 {
 	String _str = F("");
 	_str += log_dir;
@@ -87,7 +87,7 @@ String ArduinoDebug::dirName(void)
 	return _str;
 }
 
-String ArduinoDebug::fileName(void)
+String ARDUINO_DEBUG::fileName(void)
 {
 	String _str = F("");
 	_str += dirName();
@@ -96,7 +96,7 @@ String ArduinoDebug::fileName(void)
 	return _str;
 }
 
-String ArduinoDebug::lastFileName(void)
+String ARDUINO_DEBUG::lastFileName(void)
 {
 #ifdef _SD_CARD_CONNECT
 
@@ -137,7 +137,7 @@ String ArduinoDebug::lastFileName(void)
 	return "";
 }
 
-bool ArduinoDebug::checkFileOverSize(String _file_name)
+bool ARDUINO_DEBUG::checkFileOverSize(String _file_name)
 {
 #ifdef _SD_CARD_CONNECT
 	char _file[32];
@@ -157,7 +157,7 @@ bool ArduinoDebug::checkFileOverSize(String _file_name)
 	return 0;
 }
 
-bool ArduinoDebug::checkExistDir(void)
+bool ARDUINO_DEBUG::checkExistDir(void)
 {
 #ifdef _SD_CARD_CONNECT
 	char _dir[16];
@@ -180,7 +180,7 @@ bool ArduinoDebug::checkExistDir(void)
 }
 
 //  public:
-bool ArduinoDebug::init(void)
+bool ARDUINO_DEBUG::init(void)
 {
 #if defined(_USE_SOFTWARE_SERAIL)
 	serial_port->begin(serial_baud);
@@ -203,12 +203,12 @@ bool ArduinoDebug::init(void)
     return 0;
 }
 
-void ArduinoDebug::setHeader(String _header)
+void ARDUINO_DEBUG::setHeader(String _header)
 {
     header = _header;
 }
 
-void ArduinoDebug::setLogPath(String _path)
+void ARDUINO_DEBUG::setLogPath(String _path)
 {
 	String str = F("Set path log file to : ");
 	str += _path;
@@ -217,7 +217,7 @@ void ArduinoDebug::setLogPath(String _path)
     log_path = _path;
 }
 
-void ArduinoDebug::setLogDir(char *_dir)
+void ARDUINO_DEBUG::setLogDir(char *_dir)
 {
 	String str = F("Set path log file to : ");
 	str += String(_dir);
@@ -226,7 +226,7 @@ void ArduinoDebug::setLogDir(char *_dir)
 	log_dir = _dir;
 }
 
-void ArduinoDebug::say(String _data)
+void ARDUINO_DEBUG::say(String _data)
 {
     String str;
     str = setFormat(_data);
@@ -234,7 +234,7 @@ void ArduinoDebug::say(String _data)
 //	serial_port->flush();
 }
 
-void ArduinoDebug::sayln(String _data)
+void ARDUINO_DEBUG::sayln(String _data)
 {
     String str;
     str = setFormat(_data);
@@ -242,7 +242,7 @@ void ArduinoDebug::sayln(String _data)
 //	serial_port->flush();
 }
 
-void ArduinoDebug::writeLog(String _data)
+void ARDUINO_DEBUG::writeLog(String _data)
 {
 #ifdef _SD_CARD_CONNECT
 	checkExistDir();
@@ -283,7 +283,7 @@ void ArduinoDebug::writeLog(String _data)
 #endif
 }
 
-void ArduinoDebug::sayAndWriteLog(String _data)
+void ARDUINO_DEBUG::sayAndWriteLog(String _data)
 {
     String str;
     str = setFormat(_data);
@@ -292,7 +292,7 @@ void ArduinoDebug::sayAndWriteLog(String _data)
 	serial_port->flush();
 }
 
-void ArduinoDebug::check2DelLogOver(int _size_byte, String _file_name)
+void ARDUINO_DEBUG::check2DelLogOver(int _size_byte, String _file_name)
 {
 
 }

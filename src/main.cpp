@@ -8,7 +8,7 @@ CustomSoftwareSerial _MY_SOFTWARE_SERIAL(_SOFTWARE_SERIAL_RX_PIN, _SOFTWARE_SERI
 SoftwareSerial _MY_SOFTWARE_SERIAL(_SOFTWARE_SERIAL_RX_PIN, _SOFTWARE_SERIAL_TX_PIN, false);
 #endif
 
-ArduinoDebug debug("MAIN");
+ARDUINO_DEBUG debug("MAIN");
 
 void setup()
 {

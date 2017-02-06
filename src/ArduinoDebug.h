@@ -1,5 +1,5 @@
-#ifndef _ArduinoDebug_h
-#define _ArduinoDebug_h
+#ifndef _ARDUINO_DEBUG_h
+#define _ARDUINO_DEBUG_h
 
 #define use_mega2560
 
@@ -61,7 +61,7 @@
 ////----------------------------------------------------------------//
 #endif // _USE_SOFTWARE_SERAIL
 
-class ArduinoDebug
+class ARDUINO_DEBUG
 {
 private:
 #if defined(_USE_SOFTWARE_SERAIL)
@@ -86,8 +86,8 @@ private:
 
 
 public:
-  ArduinoDebug(String _header);
-  ~ArduinoDebug();
+  ARDUINO_DEBUG(String _header);
+  ~ARDUINO_DEBUG();
   bool init(void);
   void setHeader(String _header);
   void setLogPath(String _data);
@@ -107,4 +107,4 @@ extern SoftwareSerial _MY_SOFTWARE_SERIAL;
 extern CustomSoftwareSerial _MY_SOFTWARE_SERIAL;
 #endif
 
-#endif // _ArduinoDebug_h
+#endif // _ARDUINO_DEBUG_h
