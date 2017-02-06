@@ -238,7 +238,7 @@ void ArduinoDebug::sayln(String _data)
 {
     String str;
     str = setFormat(_data);
-    serial_port->println(str);
+    serial_port->println("#" + str);
 //	serial_port->flush();
 }
 
