@@ -3,9 +3,9 @@
 ARDUINO_DEBUG::ARDUINO_DEBUG(String _head)
 {
 #if defined(_USE_SOFTWARE_SERAIL) || defined(_USE_CUSTOM_SOFTWARE_SERAIL)
-		serial_port = &_MY_SOFTWARE_SERIAL;
+	serial_port = &_MY_SOFTWARE_SERIAL;
 #else
-		serial_port = &_LOG_DEBUG_SERIAL_PORT;
+	serial_port = &_LOG_DEBUG_SERIAL_PORT;
 #endif // _USE_SOFTWARE_SERAIL
     serial_baud = _LOG_DEBUG_SERIAL_BAUD;
     log_dir = (char *)_LOG_DIR;

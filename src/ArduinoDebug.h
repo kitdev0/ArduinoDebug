@@ -41,7 +41,7 @@
 #define _DEBUG_SAY_AND_WRITE 2
 #endif //_DEBUG_PRINT_AND_WRITE
 
-#define _USE_CUSTOM_SOFTWARE_SERAIL //Uncomment this if use Software serial
+// #define _USE_CUSTOM_SOFTWARE_SERAIL //Uncomment this if use Software serial
 // #define _USE_SOFTWARE_SERAIL //Uncomment this if use Software serial
 
 #if defined(_USE_CUSTOM_SOFTWARE_SERAIL)

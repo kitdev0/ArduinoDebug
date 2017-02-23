@@ -1,3 +1,6 @@
+
+// #define _USE_CUSTOM_SOFTWARE_SERAIL  //Uncomment this if use Custom Software serial
+// #define _USE_SOFTWARE_SERAIL         //Uncomment this if use Software serial
 #include "ArduinoDebug.h"
 //Please Define Software serial here if you use Software Serial to Debuger port.
 #if defined(_USE_CUSTOM_SOFTWARE_SERAIL)
@@ -14,6 +17,8 @@ void setup()
 {
   debug.init();
   debug.sayln("Start programe...");
+  // Serial.begin(115200);
+  // Serial.println("Hi..");
 }
 
 void loop()
